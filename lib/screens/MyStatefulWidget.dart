@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'Inici.dart';  
+import 'Inici.dart';
 import 'RegistroUsers.dart';
 //import 'package:iniciodesesion/pages/RegistroUsers.dart';
 
@@ -11,9 +11,9 @@ class MyStatefulWidget extends StatefulWidget {
 
   @override
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-    static const String _title = 'hola';
-
+  static const String _title = 'hola';
 }
+
 //login
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -55,9 +55,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ElevatedButton(
               onPressed: () {
-                loginInfo.fetchLogin(_correoController.text, _passController.text);
-                Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => Inicio_page()));
+                // loginInfo.email = _correoController.text;
+                // loginInfo.pass = _passController.text;
+                // loginInfo.fetchLogin(loginInfo.email, loginInfo.pass);
+                if (_formKey.currentState!.validate()) {
+                  loginInfo.fetchLogin(
+                      _correoController.text, _passController.text, context);
+                  // print('que está entrandooooooooooooaaaaaaa?: ${loginInfo.statusCode}');
+                }
               },
               child: const Text('login'),
             ),
@@ -66,9 +71,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ElevatedButton(
               onPressed: () {
-               Navigator.of(context)
-                    .push(MaterialPageRoute(
-                      builder: (context) => RegistroUsers()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RegistroUsers()));
               },
               child: const Text('Registrarme'),
             ),
