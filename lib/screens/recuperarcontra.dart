@@ -94,7 +94,6 @@ class recuperarcontra extends State<recuperar> {
                 SizedBox(height: 20,),
 
           Text(
-            
             'Remember me',
             style: TextStyle(
               color: Color.fromARGB(255, 0, 0, 0),

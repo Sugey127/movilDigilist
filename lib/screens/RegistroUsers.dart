@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/screens/Inici.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/registro_provider.dart';
 
 class RegistroUsers extends StatefulWidget {
   const RegistroUsers({super.key});
 
   @override
   State<RegistroUsers> createState() => _RegistroUsersState();
-    static const String _title = 'Digilist';
-
+  static const String _title = 'Digilist';
 }
 
 class _RegistroUsersState extends State<RegistroUsers> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final _userNombreController = TextEditingController();
+  final _usuarioApellidoController = TextEditingController();
+  final _telefonoController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final registroInfo = Provider.of<registroProvider>(context);
     return Scaffold(
-      body: Form( 
+      body: Form(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-              TextFormField(
+            TextFormField(
+              controller: _userNombreController,
               decoration: const InputDecoration(
                 hintText: 'Ingresa tu nombre',
               ),
@@ -29,7 +39,8 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 return null;
               },
             ),
-             TextFormField(
+            TextFormField(
+              controller: _usuarioApellidoController,
               decoration: const InputDecoration(
                 hintText: 'Ingresa tu apellido',
               ),
@@ -40,7 +51,8 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 return null;
               },
             ),
-             TextFormField(
+            TextFormField(
+              controller: _telefonoController,
               decoration: const InputDecoration(
                 hintText: 'Ingresa tu telefono',
               ),
@@ -51,7 +63,8 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 return null;
               },
             ),
-             TextFormField(
+            TextFormField(
+              controller: _emailController,
               decoration: const InputDecoration(
                 hintText: 'Ingresa tu correo',
               ),
@@ -62,7 +75,8 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 return null;
               },
             ),
-             TextFormField(
+            TextFormField(
+              controller: _passController,
               decoration: const InputDecoration(
                 hintText: 'Ingresa tu contraseña',
               ),
@@ -74,22 +88,24 @@ class _RegistroUsersState extends State<RegistroUsers> {
               },
             ),
             Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => Inicio_page()));
-              },
-              child: const Text('iniciar'),
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  print(_userNombreController.text);
+                  registroInfo.fetchRegistro(
+                      _userNombreController.text,
+                      _usuarioApellidoController.text,
+                      _telefonoController.text,
+                      _emailController.text,
+                      _passController.text,
+                      context);
+                },
+                child: const Text('iniciar'),
+              ),
             ),
-          ),
           ],
-
-        ),      
-        
+        ),
       ),
     );
-   
-  
   }
 }

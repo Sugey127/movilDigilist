@@ -4,7 +4,10 @@ import 'package:flutter_login_ui/providers/provider_autopartes.dart';
 import 'package:flutter_login_ui/providers/provider_buscarYear.dart';
 import 'package:flutter_login_ui/providers/provider_marca.dart';
 import 'package:flutter_login_ui/providers/provider_modelos.dart';
+import 'package:flutter_login_ui/providers/provider_recuperarContrasenia.dart';
+import 'package:flutter_login_ui/providers/provider_verificarCode.dart';
 import 'package:flutter_login_ui/providers/provider_year.dart';
+import 'package:flutter_login_ui/providers/registro_provider.dart';
 import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/login_screen.dart';
 import 'package:flutter_login_ui/providers/provider_buscarMarca.dart';
@@ -35,7 +38,13 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider<BucarModeloPorYear>(
               create: (context) => BucarModeloPorYear()),
           ChangeNotifierProvider<loginProvider>(
-              create: (context) => loginProvider())
+              create: (context) => loginProvider()),
+          ChangeNotifierProvider<registroProvider>(
+              create: (context) => registroProvider()),
+          ChangeNotifierProvider<VerificarCodigo>(
+              create: (context) => VerificarCodigo()),
+          ChangeNotifierProvider<RecuperarContraseniaProvider>(
+              create: (context) => RecuperarContraseniaProvider())
         ],
         child: MaterialApp(
           theme: ThemeData(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/login_provider.dart';
+import 'package:flutter_login_ui/screens/recuperarContrasenia.dart';
 import 'package:provider/provider.dart';
 
 import 'Inici.dart';
@@ -75,6 +76,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     MaterialPageRoute(builder: (context) => RegistroUsers()));
               },
               child: const Text('Registrarme'),
+            ),
+          ),
+           Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RecuperarContrasenia()));
+              },
+              child: const Text('Recuperar contraseña'),
             ),
           ),
         ],
