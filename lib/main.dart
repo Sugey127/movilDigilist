@@ -4,6 +4,7 @@ import 'package:flutter_login_ui/providers/provider_autopartes.dart';
 import 'package:flutter_login_ui/providers/provider_buscarYear.dart';
 import 'package:flutter_login_ui/providers/provider_marca.dart';
 import 'package:flutter_login_ui/providers/provider_modelos.dart';
+import 'package:flutter_login_ui/providers/provider_proveedor.dart';
 import 'package:flutter_login_ui/providers/provider_recuperarContrasenia.dart';
 import 'package:flutter_login_ui/providers/provider_verificarCode.dart';
 import 'package:flutter_login_ui/providers/provider_year.dart';
@@ -44,7 +45,9 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider<VerificarCodigo>(
               create: (context) => VerificarCodigo()),
           ChangeNotifierProvider<RecuperarContraseniaProvider>(
-              create: (context) => RecuperarContraseniaProvider())
+              create: (context) => RecuperarContraseniaProvider()),
+          ChangeNotifierProvider<ProveedorProvider>(
+              create: (context) => ProveedorProvider()..fetchProveedores()),
         ],
         child: MaterialApp(
           theme: ThemeData(

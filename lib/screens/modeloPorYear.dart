@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/provider_year.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
+import 'package:flutter_login_ui/screens/proveedor.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/provider_buscarYear.dart';
@@ -81,6 +82,16 @@ class ModeloPorYear extends StatelessWidget {
                               builder: (context) => catalagodos()));
                     },
                   ),
+                   ListTile(
+                    leading: Icon(Icons.book),
+                    title: Text('Provedor'),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => proveedor()));
+                    },
+                  ),
                   ListTile(
                     leading: Icon(Icons.notifications),
                     title: Text('Notificaciones'),
@@ -136,7 +147,28 @@ class ModeloPorYear extends StatelessWidget {
           ),
         
 
-          body: ListView.builder(
+          body:(buscarModeloInfoYear.years.isEmpty)
+            ? RefreshIndicator(
+            onRefresh: _refresh,
+            child: SizedBox(
+                height: double.infinity,
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.hourglass_bottom_rounded, color: Colors.grey),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'Sin datos por el momento.....',
+                      style: TextStyle(fontSize: 20.0, color: Colors.grey),
+                    )
+                  ],
+                ),
+              ),
+          ):
+          
+           ListView.builder(
             itemCount: buscarModeloInfoYear.years.length,
             itemBuilder: (BuildContext context, int index) {              
              
@@ -155,6 +187,9 @@ class ModeloPorYear extends StatelessWidget {
             },
 
         )));
+  }
+   Future<void> _refresh() {
+    return Future.delayed(const Duration(seconds: 0));
   }
 }
 Widget _buildItem(String textTitle) {

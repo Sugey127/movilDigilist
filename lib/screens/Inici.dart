@@ -5,6 +5,7 @@ import 'package:flutter_login_ui/screens/login_screen.dart';
 import 'package:flutter_login_ui/screens/notificaciones.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
+import 'package:flutter_login_ui/screens/proveedor.dart';
 
 import '../utilities/categoriesWidget.dart';
 import 'configuraciones.dart';
@@ -79,6 +80,16 @@ class Inicio_page extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => catalagodos()));
+                    },
+                  ),
+                   ListTile(
+                    leading: Icon(Icons.book),
+                    title: Text('Provedor'),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => proveedor()));
                     },
                   ),
                   ListTile(
@@ -201,6 +212,9 @@ class Inicio_page extends StatelessWidget {
             ],
           ),
         ));
+  }
+  Future<void> _refresh() {
+    return Future.delayed(const Duration(seconds: 0));
   }
 }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/provider_buscarMarca.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
+import 'package:flutter_login_ui/screens/proveedor.dart';
 import 'package:provider/provider.dart';
 
 import 'Inici.dart';
@@ -83,6 +84,16 @@ class ModeloMarcaModelo extends StatelessWidget {
                               builder: (context) => catalagodos()));
                     },
                   ),
+                   ListTile(
+                    leading: Icon(Icons.book),
+                    title: Text('Provedor'),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => proveedor()));
+                    },
+                  ),
                   ListTile(
                     leading: Icon(Icons.notifications),
                     title: Text('Notificaciones'),
@@ -136,7 +147,28 @@ class ModeloMarcaModelo extends StatelessWidget {
           appBar: AppBar(
             title: const Text('Modelo'),
           ),
-          body: ListView.builder(
+         body: (buscarModeloInfo.marcas.isEmpty)
+            ? RefreshIndicator(
+            onRefresh: _refresh,
+            child: SizedBox(
+                height: double.infinity,
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.hourglass_bottom_rounded, color: Colors.grey),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'Sin datos por el momento.....',
+                      style: TextStyle(fontSize: 20.0, color: Colors.grey),
+                    )
+                  ],
+                ),
+              ),
+          ):
+          
+          ListView.builder(
             itemCount: buscarModeloInfo.marcas.length,
             itemBuilder: (BuildContext context, int index) {
               return Column(
@@ -153,6 +185,9 @@ class ModeloMarcaModelo extends StatelessWidget {
             },
           ),
         ));
+  }
+  Future<void> _refresh() {
+    return Future.delayed(const Duration(seconds: 0));
   }
 }
 
