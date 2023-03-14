@@ -1,11 +1,11 @@
+// Dart 2.17.0
 import 'package:flutter/material.dart';
-import 'package:flutter_login_ui/screens/Inici.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/registro_provider.dart';
 
 class RegistroUsers extends StatefulWidget {
-  const RegistroUsers({super.key});
+  const RegistroUsers({Key? key}) : super(key: key);
 
   @override
   State<RegistroUsers> createState() => _RegistroUsersState();

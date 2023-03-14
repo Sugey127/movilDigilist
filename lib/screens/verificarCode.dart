@@ -1,3 +1,4 @@
+// Dart 2.17.0
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/screens/Inici.dart';
 import 'package:provider/provider.dart';
@@ -5,7 +6,7 @@ import '../providers/provider_verificarCode.dart';
 import '../providers/registro_provider.dart';
 
 class VerificarCode extends StatefulWidget {
-  const VerificarCode({super.key});
+  const VerificarCode({Key? key}) : super(key: key);
 
   @override
   State<VerificarCode> createState() => _VerificarCodeState();

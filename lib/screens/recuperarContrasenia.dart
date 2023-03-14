@@ -1,3 +1,4 @@
+// Dart 2.17.0
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/provider_recuperarContrasenia.dart';
 import 'package:flutter_login_ui/screens/Inici.dart';
@@ -5,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../providers/registro_provider.dart';
 
 class RecuperarContrasenia extends StatefulWidget {
-  const RecuperarContrasenia({super.key});
+  const RecuperarContrasenia({Key? key}) : super(key: key);
 
   @override
   State<RecuperarContrasenia> createState() => _RecuperarContraseniaState();

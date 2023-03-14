@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\tirad\\Desktop\\DIGILIT\\DIGILIT-master\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-am\\values-am.xml",
+            "outputFile": "C:\\TareasSugey\\DIGILIT-master\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-am\\values-am.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\tirad\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\values-am\\values-am.xml",
+                    "source": "C:\\Users\\PC Sugey\\.gradle\\caches\\transforms-3\\ca47131158958428d9b8ccd7a987edf4\\transformed\\core-1.6.0\\res\\values-am\\values-am.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

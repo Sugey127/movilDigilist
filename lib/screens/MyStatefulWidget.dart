@@ -1,14 +1,14 @@
+// Dart 2.17.0
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/screens/recuperarContrasenia.dart';
 import 'package:provider/provider.dart';
 
-import 'Inici.dart';
 import 'RegistroUsers.dart';
 //import 'package:iniciodesesion/pages/RegistroUsers.dart';
 
 class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({super.key});
+  const MyStatefulWidget({Key? key}) : super(key: key);
 
   @override
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
@@ -31,6 +31,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           TextFormField(
             controller: _correoController,
             decoration: const InputDecoration(
+              fillColor: Colors.pink,
               hintText: 'Ingresa tu correo',
             ),
             validator: (String? value) {

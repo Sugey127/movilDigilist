@@ -1,9 +1,10 @@
+// Dart 2.17.0
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 //inicio
 
 class notificaciones extends StatefulWidget {
-  const notificaciones({super.key});
+  const notificaciones({Key? key}) : super(key: key);
 
   @override
   State<notificaciones> createState() => _notificaciones();
