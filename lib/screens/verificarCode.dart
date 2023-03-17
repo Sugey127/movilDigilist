@@ -25,6 +25,14 @@ class _VerificarCodeState extends State<VerificarCode> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Center(
+                child: Container(
+                width: 120,
+                height: 120,
+                color: Color.fromARGB(255, 255, 255, 255),
+                child: Image.asset('assets/logos/logo_proyecto.png'),
+                ),
+              ),
             TextFormField(
               controller: _codeController,
               decoration: const InputDecoration(

@@ -225,7 +225,7 @@ class perfil extends StatelessWidget {
             height: 20.0,
           ),
           Container(
-            width: 300.00,
+            width: 250.00,
             child: RaisedButton(
                 onPressed: () {},
                 shape: RoundedRectangleBorder(

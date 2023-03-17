@@ -1,4 +1,6 @@
 // Dart 2.17.0
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/screens/recuperarContrasenia.dart';
@@ -24,10 +26,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     final loginInfo = Provider.of<loginProvider>(context);
     return Form(
+      
       key: _formKey,
+      
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Center(
+          child: Container(
+            width: 120,
+            height: 120,
+            color: Color.fromARGB(255, 255, 255, 255),
+            child: Image.asset('assets/logos/logo_proyecto.png'),
+            ),
+          ),
           TextFormField(
             controller: _correoController,
             decoration: const InputDecoration(
@@ -66,12 +78,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   // print('que está entrandooooooooooooaaaaaaa?: ${loginInfo.statusCode}');
                 }
               },
+              
               child: const Text('login'),
+              
             ),
           ),
-          Padding(
+          
+         Padding(            
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ElevatedButton(
+
               onPressed: () {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => RegistroUsers()));
@@ -79,18 +95,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               child: const Text('Registrarme'),
             ),
           ),
-           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => RecuperarContrasenia()));
-              },
-              child: const Text('Recuperar contraseña'),
+          Container(    
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  alignment: Alignment.center
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => RecuperarContrasenia()));
+    
+                },
+                child: const Text('Recuperar contraseña'),
+              ),
             ),
           ),
         ],
       ),
+    
     );
   }
 }

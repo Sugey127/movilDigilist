@@ -27,6 +27,14 @@ class _RegistroUsersState extends State<RegistroUsers> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+              Center(
+                child: Container(
+                width: 120,
+                height: 120,
+                color: Color.fromARGB(255, 255, 255, 255),
+                child: Image.asset('assets/logos/logo_proyecto.png'),
+                ),
+              ),
             TextFormField(
               controller: _userNombreController,
               decoration: const InputDecoration(
@@ -42,7 +50,7 @@ class _RegistroUsersState extends State<RegistroUsers> {
             TextFormField(
               controller: _usuarioApellidoController,
               decoration: const InputDecoration(
-                hintText: 'Ingresa tu apellido',
+              hintText: 'Ingresa tu apellido',
               ),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {

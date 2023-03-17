@@ -23,12 +23,12 @@ class Inicio_page extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         //title: 'material app',
           theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.orange,
       ),
         home: Scaffold(
           drawer: Drawer(
             child: Container(
-              color: Color.fromARGB(255, 255, 237, 212),
+              color: Color.fromARGB(255, 251, 246, 239),
               child: ListView(
                 children: [
                   UserAccountsDrawerHeader(
