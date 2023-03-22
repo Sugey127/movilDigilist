@@ -10,7 +10,7 @@ class ModeloProvider extends ChangeNotifier {
 
   Future fetchModelos() async {
     final response = await http.get(Uri.parse(
-        'https://apidigilist-production.up.railway.app/modelo/buscarTodos'));
+        'https://digilist.fly.dev/modelo/buscarTodos'));
 
     if (response.statusCode == 201) {
       print(response.body);

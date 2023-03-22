@@ -25,17 +25,34 @@ class _VerificarCodeState extends State<VerificarCode> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+
+            SizedBox(
+                height: 50,
+              ),
+
             Center(
                 child: Container(
-                width: 120,
-                height: 120,
+                width: 150,
+                height: 150,
                 color: Color.fromARGB(255, 255, 255, 255),
                 child: Image.asset('assets/logos/logo_proyecto.png'),
                 ),
               ),
-            TextFormField(
+
+               SizedBox(
+                height: 50,
+              ),
+
+          Align(
+            alignment: Alignment.topCenter,
+        child: SizedBox(
+          width: 450,
+            child: TextFormField(
+              style: TextStyle( height: 2.0, color: Colors.black),
               controller: _codeController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.lock),
                 hintText: 'Ingresa tu codigo',
               ),
               validator: (String? value) {
@@ -45,16 +62,30 @@ class _VerificarCodeState extends State<VerificarCode> {
                 return null;
               },
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: ElevatedButton(
-              
-                onPressed: () {
-                  print(_codeController.text);
-                  registroInfo.fetchCode(
-                      _codeController.text,context);
-                },
-                child: const Text('iniciar'),
+          ),
+        ),
+
+         SizedBox(
+                height: 40,
+              ),
+
+             Align(
+            alignment: Alignment.topCenter,
+            child: ElevatedButton(
+             style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange,
+            // side: BorderSide(color: Colors.yellow, width: 5),
+            textStyle: const TextStyle(
+                color: Colors.white, fontSize: 15, fontStyle: FontStyle.normal),
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          ), 
+                  onPressed: () {
+                    print(_codeController.text);
+                    registroInfo.fetchCode(
+                        _codeController.text,context);
+                  },
+                  child: const Text('iniciar'),
               ),
             ),
           ],

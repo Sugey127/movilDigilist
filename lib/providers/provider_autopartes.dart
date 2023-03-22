@@ -10,7 +10,7 @@ class AutoparteProvider extends ChangeNotifier {
 
   Future fetchAutopartes() async {
     final response = await http.get(Uri.parse(
-        'https://apidigilist-production.up.railway.app/autopartes/buscarTodos'));
+        'https://digilist.fly.dev/autopartes/buscarTodos'));
 
     if (response.statusCode == 201) {
       print(response.body);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/provider_year.dart';
+import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
 import 'package:flutter_login_ui/screens/proveedor.dart';
@@ -138,7 +139,7 @@ class anocatalago extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => MyStatefulWidget()));
                       }),
                 ],
               ),

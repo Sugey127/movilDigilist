@@ -15,7 +15,7 @@ class BucarModeloPorMarca extends ChangeNotifier {
 
   Future fetchBuscarMarca() async {
     final url = Uri.parse(
-        'https://apidigilist-production.up.railway.app/modelo/buscarMarca/$_marca');
+        'https://digilist.fly.dev/modelo/buscarMarca/$_marca');
 
     try {
       final response = await http.get(url);

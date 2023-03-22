@@ -27,7 +27,7 @@ class loginProvider extends ChangeNotifier {
     _pass = password;
     final response = await http.post(
         Uri.parse(
-            'https://apidigilist-production.up.railway.app/usuario/login'),
+            'https://digilist.fly.dev/usuario/login'),
         headers: <String, String>{'Content-Type': 'application/json'},
         body:
             jsonEncode(<String, String>{"email": email, "password": password}));

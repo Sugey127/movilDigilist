@@ -1,5 +1,6 @@
 import 'package:clippy_flutter/clippy_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
 import 'Inici.dart';
 import 'carrito.dart';
@@ -105,7 +106,7 @@ class perfil extends StatelessWidget {
                   title: Text('Salir'),
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                        MaterialPageRoute(builder: (context) => MyStatefulWidget()));
                   }),
               ListTile(
                   leading: Icon(Icons.shop),

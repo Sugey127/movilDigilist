@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
 
@@ -110,7 +111,7 @@ class catalagodos extends StatelessWidget {
                   title: Text('Salir'),
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                        MaterialPageRoute(builder: (context) => MyStatefulWidget()));
                   }),
               ListTile(
                   leading: Icon(Icons.shop),

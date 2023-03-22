@@ -9,7 +9,7 @@ class YearProvider extends ChangeNotifier {
 
   Future fetchYears() async {
     final response = await http.get(Uri.parse(
-        'https://apidigilist-production.up.railway.app/year/buscarTodos'));
+        'https://digilist.fly.dev/year/buscarTodos'));
     if (response.statusCode == 201) {
       _year = jsonDecode(response.body);
       notifyListeners();

@@ -21,21 +21,42 @@ class _RecuperarContraseniaState extends State<RecuperarContrasenia> {
   Widget build(BuildContext context) {
     final registroInfo = Provider.of<RecuperarContraseniaProvider>(context);
     return Scaffold(
+      
       body: Form(
+            child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-              Center(
-                child: Container(
-                width: 120,
-                height: 120,
-                color: Color.fromARGB(255, 255, 255, 255),
-                child: Image.asset('assets/logos/logo_proyecto.png'),
-                ),
+              
+              SizedBox(
+                height: 80,
               ),
-            TextFormField(
+
+              Center(
+            
+          child: Container(
+            
+            width: 150,
+            height: 150,
+            color: Color.fromARGB(255, 233, 232, 232),
+            child: Image.asset('assets/logos/logo_proyecto.png'),
+            ),
+          ),
+
+          SizedBox(
+                height: 80,
+              ),
+
+          Align(
+            alignment: Alignment.topCenter,
+        child: SizedBox(
+          width: 450,
+            child: TextFormField(
+              style: TextStyle( height: 2.0, color: Colors.black),     
               controller: _emailController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.email),
                 hintText: 'Ingresa tu correo',
               ),
               validator: (String? value) {
@@ -45,9 +66,24 @@ class _RecuperarContraseniaState extends State<RecuperarContrasenia> {
                 return null;
               },
             ),
-            TextFormField(
+          ),
+        ),
+
+         SizedBox(
+                //Use of SizedBox
+                height: 20,
+              ),
+
+        Align(
+          alignment: Alignment.topCenter,
+        child: SizedBox(
+          width: 450,
+            child: TextFormField(
+              style: TextStyle( height: 2.0, color: Colors.black),
               controller: _contraseniaController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.lock),
                 hintText: 'Ingresa tu nueva contraseña',
               ),
               validator: (String? value) {
@@ -56,20 +92,36 @@ class _RecuperarContraseniaState extends State<RecuperarContrasenia> {
                 }
                 return null;
               },
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+          ),
+        ),
+      ),
+
+      SizedBox(
+                //Use of SizedBox
+                height: 40,
+              ),
+
+            Align(
+            alignment: Alignment.topCenter,
               child: ElevatedButton(
-              
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                textStyle: const TextStyle(
+                color: Colors.white, fontSize: 15, fontStyle: FontStyle.normal),
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          
+                ),
                 onPressed: () {
                   print(_contraseniaController.text);
                   registroInfo.fetchRecuperarContrasenia(_emailController.text,_contraseniaController.text,context);
                 },
-                child: const Text('iniciar'),
+              child: const Text('          Iniciar          '),
               ),
             ),
           ],
         ),
+            ),
       ),
     );
   }

@@ -9,7 +9,7 @@ class ProveedorProvider extends ChangeNotifier {
 
   Future fetchProveedores() async {
     final response = await http.get(Uri.parse(
-        'https://apidigilist-production.up.railway.app/proveedores/buscarTodos'));
+        'https://digilist.fly.dev/proveedores/buscarTodos'));
 
     if (response.statusCode == 201) {
       _proveedores = jsonDecode(response.body);

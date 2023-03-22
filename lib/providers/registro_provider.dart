@@ -40,7 +40,7 @@ class registroProvider extends ChangeNotifier {
 
     final response = await http.post(
         Uri.parse(
-            'https://apidigilist-production.up.railway.app/usuario/pre-registroCliente'),
+            'https://digilist.fly.dev/usuario/pre-registroCliente'),
         headers: <String, String>{'Content-Type': 'application/json'},
         body:
             jsonEncode(<String, String>{"userNombre":userNombre,"usuarioApellido":usuarioApellido, "telefono":telefono,"email": email, "password": password}));

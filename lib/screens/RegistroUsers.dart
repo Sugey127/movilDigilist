@@ -24,32 +24,53 @@ class _RegistroUsersState extends State<RegistroUsers> {
     final registroInfo = Provider.of<registroProvider>(context);
     return Scaffold(
       body: Form(
+
+            child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-              Center(
-                child: Container(
-                width: 120,
-                height: 120,
-                color: Color.fromARGB(255, 255, 255, 255),
-                child: Image.asset('assets/logos/logo_proyecto.png'),
+
+             SizedBox(
+                height: 50,
+              ),
+
+            Align(
+              alignment: Alignment.topCenter,
+              child: SizedBox(
+                width: 450,
+              child:TextFormField(
+                style: TextStyle( height: 2.0, color: Colors.black),
+                controller: _userNombreController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.person),
+                  hintText: 'Ingresa tu nombre',
                 ),
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
               ),
-            TextFormField(
-              controller: _userNombreController,
-              decoration: const InputDecoration(
-                hintText: 'Ingresa tu nombre',
-              ),
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
             ),
-            TextFormField(
+          ),
+
+          SizedBox(
+                //Use of SizedBox
+                height: 20,
+              ),
+            
+            Align(
+              alignment: Alignment.topCenter,
+              child: SizedBox(
+              width: 450,
+              child:TextFormField(
+              style: TextStyle( height: 2.0, color: Colors.black),
               controller: _usuarioApellidoController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                      prefixIcon: Icon(Icons.person_2),
               hintText: 'Ingresa tu apellido',
               ),
               validator: (String? value) {
@@ -59,9 +80,24 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 return null;
               },
             ),
-            TextFormField(
+          ),
+        ),
+
+        SizedBox(
+                //Use of SizedBox
+                height: 20,
+              ),
+
+          Align(
+            alignment: Alignment.topCenter,
+            child: SizedBox(
+            width: 450,
+            child:TextFormField(
+              style: TextStyle( height: 2.0, color: Colors.black),
               controller: _telefonoController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.numbers),
                 hintText: 'Ingresa tu telefono',
               ),
               validator: (String? value) {
@@ -71,9 +107,24 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 return null;
               },
             ),
-            TextFormField(
+          ),
+        ),
+
+        SizedBox(
+                //Use of SizedBox
+                height: 20,
+              ),
+
+          Align(
+            alignment: Alignment.topCenter,
+            child: SizedBox(
+            width: 450,
+            child: TextFormField(
+              style: TextStyle( height: 2.0, color: Colors.black),
               controller: _emailController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.email),
                 hintText: 'Ingresa tu correo',
               ),
               validator: (String? value) {
@@ -83,9 +134,24 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 return null;
               },
             ),
-            TextFormField(
+          ),
+        ),
+
+        SizedBox(
+                //Use of SizedBox
+                height: 20,
+              ),
+
+          Align(
+            alignment: Alignment.topCenter,
+            child: SizedBox(
+            width: 450,
+            child: TextFormField(
+              style: TextStyle( height: 2.0, color: Colors.black),
               controller: _passController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.lock),
                 hintText: 'Ingresa tu contraseña',
               ),
               validator: (String? value) {
@@ -95,9 +161,25 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 return null;
               },
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+          ),
+        ),
+
+        SizedBox(
+                //Use of SizedBox
+                height: 40,
+              ),
+
+            Align(
+            alignment: Alignment.topCenter,
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                textStyle: const TextStyle(
+                color: Colors.white, fontSize: 15, fontStyle: FontStyle.normal),
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          
+                ),
                 onPressed: () {
                   print(_userNombreController.text);
                   registroInfo.fetchRegistro(
@@ -108,10 +190,11 @@ class _RegistroUsersState extends State<RegistroUsers> {
                       _passController.text,
                       context);
                 },
-                child: const Text('iniciar'),
+                child: const Text('          Iniciar          '),
               ),
             ),
           ],
+        ),
         ),
       ),
     );

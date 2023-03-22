@@ -1,6 +1,7 @@
 import 'package:clippy_flutter/clippy_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
 
@@ -135,7 +136,7 @@ class itemPage extends StatelessWidget {
                         Navigator.push(
                             context, 
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => MyStatefulWidget()));
                       }),
                   Divider(),
                 ],

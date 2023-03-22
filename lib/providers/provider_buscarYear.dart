@@ -14,7 +14,7 @@ class BucarModeloPorYear extends ChangeNotifier {
 
   Future fetchBuscaryear() async {
     final url = Uri.parse(
-        'https://apidigilist-production.up.railway.app/modelo/buscarYear/$_year');
+        'https://digilist.fly.dev/modelo/buscarYear/$_year');
 
     try {
       final response = await http.get(url);

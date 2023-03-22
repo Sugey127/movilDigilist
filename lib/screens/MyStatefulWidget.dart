@@ -1,5 +1,5 @@
 // Dart 2.17.0
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/login_provider.dart';
@@ -14,7 +14,6 @@ class MyStatefulWidget extends StatefulWidget {
 
   @override
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-  static const String _title = 'hola';
 }
 
 //login
@@ -27,23 +26,44 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     final loginInfo = Provider.of<loginProvider>(context);
     return Form(
       
-      key: _formKey,
-      
+    key: _formKey,
+
+    //SingleChildScrollView es para que cuando lo hagan   
+    child: SingleChildScrollView(
       child: Column(
+        
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          
+          SizedBox(
+                height: 50,
+              ),
+              
           Center(
+            
           child: Container(
-            width: 120,
-            height: 120,
-            color: Color.fromARGB(255, 255, 255, 255),
+            
+            width: 150,
+            height: 150,
+            color: Color.fromARGB(255, 233, 232, 232),
             child: Image.asset('assets/logos/logo_proyecto.png'),
             ),
           ),
-          TextFormField(
+
+            SizedBox(
+                height: 40,
+              ),
+
+      Align(
+        alignment: Alignment.topCenter,
+        child: SizedBox(
+          width: 450,
+          child: TextFormField(
+            style: TextStyle( height: 2.0, color: Colors.black),
             controller: _correoController,
             decoration: const InputDecoration(
-              fillColor: Colors.pink,
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.email),
               hintText: 'Ingresa tu correo',
             ),
             validator: (String? value) {
@@ -53,9 +73,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               return null;
             },
           ),
-          TextFormField(
+        ),
+      ),
+
+          SizedBox(
+                //Use of SizedBox
+                height: 20,
+              ),
+
+   Align(
+      alignment: Alignment.topCenter,
+      child: SizedBox(
+        width: 450,
+          child: TextFormField(
+              style: TextStyle( height: 2.0, color: Colors.black),
+              obscureText: true,
             controller: _passController,
             decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.lock),
               hintText: 'Ingresa tu contraseña',
             ),
             validator: (String? value) {
@@ -65,9 +101,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               return null;
             },
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
+        ),
+   ),
+
+          SizedBox(
+                //Use of SizedBox
+                height: 40,
+              ),
+
+          Align(
+            alignment: Alignment.topCenter,
             child: ElevatedButton(
+             style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange,
+            // side: BorderSide(color: Colors.yellow, width: 5),
+            textStyle: const TextStyle(
+                color: Colors.white, fontSize: 15, fontStyle: FontStyle.normal),
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          ),
               onPressed: () {
                 // loginInfo.email = _correoController.text;
                 // loginInfo.pass = _passController.text;
@@ -79,41 +131,61 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 }
               },
               
-              child: const Text('login'),
+              child: const Text('          Iniciar          '),
               
             ),
           ),
-          
-         Padding(            
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
+          SizedBox(
+                height: 10,
+              ),
 
+          
+         Align(
+            alignment: Alignment.topCenter,
+            child: ElevatedButton(
+               style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange,
+            // side: BorderSide(color: Colors.yellow, width: 5),
+            textStyle: const TextStyle(
+                color: Colors.white, fontSize: 15, fontStyle: FontStyle.normal),
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          ),
               onPressed: () {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => RegistroUsers()));
               },
-              child: const Text('Registrarme'),
+              child: const Text('       Registrarme       '),
             ),
           ),
-          Container(    
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+
+              SizedBox(
+                height: 10,
+              ),
+          
+          Align(
+            alignment: Alignment.topCenter,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  alignment: Alignment.center
-                ),
+                  style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange,
+            // side: BorderSide(color: Colors.yellow, width: 5),
+            textStyle: const TextStyle(
+                color: Colors.white, fontSize: 15, fontStyle: FontStyle.normal),
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          ),
                 onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => RecuperarContrasenia()));
     
                 },
-                child: const Text('Recuperar contraseña'),
+                child: const Text('   Recuperar contraseña   '),
               ),
             ),
-          ),
+          
         ],
+      ),  
       ),
-    
     );
   }
 }

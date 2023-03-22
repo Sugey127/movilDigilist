@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/carrito.dart';
 import 'package:flutter_login_ui/screens/catalagodos.dart';
 import 'package:flutter_login_ui/screens/login_screen.dart';
@@ -136,7 +137,7 @@ class Inicio_page extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => MyStatefulWidget()));
                       }),
                  
                 ],

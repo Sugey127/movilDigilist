@@ -9,7 +9,7 @@ class MarcaProvider extends ChangeNotifier {
 
   Future fetchMarcas() async {
     final response = await http.get(Uri.parse(
-        'https://apidigilist-production.up.railway.app/marca/buscarTodos'));
+        'https://digilist.fly.dev/marca/buscarTodos'));
 
     if (response.statusCode == 201) {
       _marcas = jsonDecode(response.body);

@@ -23,15 +23,10 @@ class recuperarcontra extends State<recuperar> {
       
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-      SizedBox(height: 90,),
-      Center(
-        child: Container(
-          width: 120,
-          height: 120,
-          color: Color.fromARGB(255, 255, 255, 255),
-          child: Image.asset('assets/logos/logo_proyecto.png'),
-      ),
-     ),
+
+      SizedBox(
+                height: 50,
+              ),
 
         Text(
           'Email',

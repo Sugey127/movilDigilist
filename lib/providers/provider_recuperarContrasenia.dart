@@ -20,7 +20,7 @@ class RecuperarContraseniaProvider extends ChangeNotifier {
 
   Future fetchRecuperarContrasenia(String email, String newPass, BuildContext context,) async {
     final url = Uri.parse(
-        'https://apidigilist-production.up.railway.app/usuario/olvidarContrasena?email=$email&password=$newPass');
+        'https://digilist.fly.dev/usuario/olvidarContrasena?email=$email&password=$newPass');
 
         print('NO JALAAAAAAAAAAAAAAAAAAAAAAAAAAAA ${email}');
       final response = await http.post(url);

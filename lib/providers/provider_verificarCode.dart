@@ -16,7 +16,7 @@ class VerificarCodigo extends ChangeNotifier {
 
   Future fetchCode(String code, BuildContext context) async {
     final url = Uri.parse(
-        'https://apidigilist-production.up.railway.app/usuario/registroCliente/$code');
+        'https://digilist.fly.dev/usuario/registroCliente/$code');
 
         print('NO JALAAAAAAAAAAAAAAAAAAAAAAAAAAAA ${code}');
       final response = await http.post(url);
