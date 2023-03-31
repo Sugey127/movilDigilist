@@ -8,11 +8,13 @@ class AutoparteProvider extends ChangeNotifier {
   dynamic _autopartes = "";
   dynamic get autopartes => _autopartes;
 
+
   Future fetchAutopartes() async {
     final response = await http.get(Uri.parse(
         'https://digilist.fly.dev/autopartes/buscarTodos'));
 
     if (response.statusCode == 201) {
+
       print(response.body);
       _autopartes = jsonDecode(response.body);
       notifyListeners(); // Notificar cambios

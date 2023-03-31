@@ -1,9 +1,11 @@
 import 'package:clippy_flutter/clippy_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
+import 'package:provider/provider.dart';
 
 import 'Inici.dart';
 import 'botondescripcion.dart';
@@ -16,20 +18,14 @@ import 'notificaciones.dart';
 void main() => runApp(itemPage());
 
 class itemPage extends StatelessWidget {
-  List<Color> Clrs = [
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.indigo,
-    Colors.orange,
-  ];
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+  final loginInfo = Provider.of<loginProvider>(context);
     return MaterialApp(
         debugShowCheckedModeBanner: false,
           theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.orange,
       ),
         //title: 'material app',
         home: Scaffold(
@@ -42,8 +38,8 @@ class itemPage extends StatelessWidget {
               child: ListView(
                 children: [
                   UserAccountsDrawerHeader(
-                    accountName: Text("Andrea_Rodriguez.com"),
-                    accountEmail: Text("Andrea@gmail.com"),
+                    accountName: Text('${loginInfo.nombre} ${loginInfo.apellido}'),
+                    accountEmail: Text(loginInfo.email),
                     currentAccountPicture: CircleAvatar(
                       child: ClipOval(
                         child: Image.network(
@@ -56,11 +52,7 @@ class itemPage extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: Color.fromARGB(255, 255, 157, 28),
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg'),
-                      ),
+                      
                     ),
                   ),
                   ListTile(
@@ -93,17 +85,6 @@ class itemPage extends StatelessWidget {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.notifications),
-                    title: Text('Notificaciones'),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => notificaciones()));
-                    },
-                  ),
-                  Divider(),
-                  ListTile(
                     leading: Icon(Icons.settings),
                     title: Text('Configuraciones'),
                     onTap: () {
@@ -113,6 +94,7 @@ class itemPage extends StatelessWidget {
                               builder: (context) => configuraciones()));
                     },
                   ),
+                  Divider(),
                   ListTile(
                     leading: Icon(Icons.description),
                     title: Text('Politicas'),
@@ -121,7 +103,6 @@ class itemPage extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => politicas()));
                     },
                   ),
-                  Divider(),
                   ListTile(
                       leading: Icon(Icons.shop),
                       title: Text('Carrito'),
@@ -253,48 +234,6 @@ class itemPage extends StatelessWidget {
                               fontSize: 17,
                               color: Color.fromARGB(255, 0, 0, 0),
                             ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: 8),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Color:",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Row(
-                                children: [
-                                  for (int i = 0; i < 5; i++)
-                                    Container(
-                                      height: 30,
-                                      width: 30,
-                                      alignment: Alignment.center,
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 5),
-                                      decoration: BoxDecoration(
-                                        color: Clrs[i],
-                                        borderRadius: BorderRadius.circular(30),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.5),
-                                            spreadRadius: 2,
-                                            blurRadius: 8,
-                                          ),
-                                        ],
-                                      ),
-                                     
-                                    ),
-                                ],
-                              ),
-                            ],
                           ),
                         ),
                       ],

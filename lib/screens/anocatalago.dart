@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/providers/provider_year.dart';
 import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
@@ -22,11 +23,12 @@ class anocatalago extends StatelessWidget {
   Widget build(BuildContext context) {
     final yaerInfo = Provider.of<YearProvider>(context);
     final buscarModeloInfoYear = Provider.of<BucarModeloPorYear>(context);
+    final loginInfo = Provider.of<loginProvider>(context);
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.grey,
+          primarySwatch: Colors.orange,
         ),
         home: Scaffold(
           drawer: Drawer(
@@ -35,8 +37,9 @@ class anocatalago extends StatelessWidget {
               child: ListView(
                 children: [
                   UserAccountsDrawerHeader(
-                    accountName: Text("Andrea_Rodriguez.com"),
-                    accountEmail: Text("Andrea@gmail.com"),
+                    accountName: Text('${loginInfo.nombre} ${loginInfo.apellido}'),
+                    accountEmail: Text(loginInfo.email),
+                    
                     currentAccountPicture: CircleAvatar(
                       child: ClipOval(
                         child: Image.network(
@@ -49,11 +52,6 @@ class anocatalago extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: Color.fromARGB(255, 255, 157, 28),
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg'),
-                      ),
                     ),
                   ),
                   ListTile(
@@ -85,27 +83,6 @@ class anocatalago extends StatelessWidget {
                               builder: (context) => catalagodos()));
                     },
                   ),
-                   ListTile(
-                    leading: Icon(Icons.book),
-                    title: Text('Provedor'),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => proveedor()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.notifications),
-                    title: Text('Notificaciones'),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => notificaciones()));
-                    },
-                  ),
-                  Divider(),
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: Text('Configuraciones'),
@@ -116,6 +93,7 @@ class anocatalago extends StatelessWidget {
                               builder: (context) => configuraciones()));
                     },
                   ),
+                  Divider(),
                   ListTile(
                     leading: Icon(Icons.description),
                     title: Text('Politicas'),
@@ -124,7 +102,6 @@ class anocatalago extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => politicas()));
                     },
                   ),
-                  Divider(),
                   ListTile(
                       leading: Icon(Icons.shop),
                       title: Text('Carrito'),
@@ -132,15 +109,15 @@ class anocatalago extends StatelessWidget {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => carrito()));
                       }),
+                      Divider(),
                   ListTile(
-                      leading: Icon(Icons.exit_to_app),
+                    leading: Icon(Icons.exit_to_app),
                       title: Text('Salir'),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyStatefulWidget()));
-                      }),
+                       onTap: () {
+                        Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => MyStatefulWidget()));
+                    },
+                  ),
                 ],
               ),
             ),

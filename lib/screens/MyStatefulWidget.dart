@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/screens/recuperarContrasenia.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_login_ui/screens/verificarCode.dart';
-
 
 import 'RegistroUsers.dart';
 //import 'package:iniciodesesion/pages/RegistroUsers.dart';
@@ -185,30 +183,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     
                 },
                 child: const Text('   Recuperar contraseña   '),
-              ),
-            ),
-
-            SizedBox(
-              height: 10,
-            ),
-
-           Align(
-            alignment: Alignment.topCenter,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.orange,
-            // side: BorderSide(color: Colors.yellow, width: 5),
-            textStyle: const TextStyle(
-                color: Colors.white, fontSize: 15, fontStyle: FontStyle.normal),
-            shape: BeveledRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-          ),
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => VerificarCode ()));
-    
-                },
-                child: const Text('    Codigo de Verificacion    '),
               ),
             ),
           

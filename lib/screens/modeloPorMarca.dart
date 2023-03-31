@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/providers/provider_buscarMarca.dart';
 import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
@@ -22,11 +23,12 @@ class ModeloMarcaModelo extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final loginInfo = Provider.of<loginProvider>(context);
     final buscarModeloInfo = Provider.of<BucarModeloPorMarca>(context);
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.grey,
+          primarySwatch: Colors.orange,
         ),
         home: Scaffold(
           drawer: Drawer(
@@ -35,8 +37,8 @@ class ModeloMarcaModelo extends StatelessWidget {
               child: ListView(
                 children: [
                   UserAccountsDrawerHeader(
-                    accountName: Text("Andrea_Rodriguez.com"),
-                    accountEmail: Text("Andrea@gmail.com"),
+                    accountName: Text('${loginInfo.nombre} ${loginInfo.apellido}'),
+                    accountEmail: Text(loginInfo.email),
                     currentAccountPicture: CircleAvatar(
                       child: ClipOval(
                         child: Image.network(
@@ -49,11 +51,7 @@ class ModeloMarcaModelo extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: Color.fromARGB(255, 255, 157, 28),
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg'),
-                      ),
+                     
                     ),
                   ),
                   ListTile(
@@ -93,16 +91,6 @@ class ModeloMarcaModelo extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => proveedor()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.notifications),
-                    title: Text('Notificaciones'),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => notificaciones()));
                     },
                   ),
                   Divider(),

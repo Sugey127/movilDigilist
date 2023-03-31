@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../screens/Inici.dart';
 
 class loginProvider extends ChangeNotifier {
@@ -17,12 +16,22 @@ class loginProvider extends ChangeNotifier {
   String _pass = '';
   String get pass => _pass;
 
+  String _nombre = '';
+  String get nombre => _nombre;
+
+  String _apellido = '';
+  String get apellido => _apellido;
+
+  String _telefono= '';
+  String get telefono=> _telefono;
+
+
   set pass(String value) => _pass = value;
   set email(String value) => _email = value;
 
   Future fetchLogin(String email, String password, BuildContext context) async {
-    print('aaaaaaaaaaaaaaaaaaaaaaa: ' + email);
-    print('aaaaaaaaaaaaaaaaaaaa3333333333333333: ' + password);
+    // print('aaaaaaaaaaaaaaaaaaaaaaa: ' + email);
+    // print('aaaaaaaaaaaaaaaaaaaa3333333333333333: ' + password);
     _email = email;
     _pass = password;
     final response = await http.post(
@@ -35,9 +44,14 @@ class loginProvider extends ChangeNotifier {
     if (response.statusCode == 200) {
       final preferences = await SharedPreferences.getInstance();
       preferences.setString('token', jsonDecode(response.body)[0]);
-      print(response.body);
-      print(preferences.getString('token'));
-      _usuario = jsonDecode(response.body);
+      _usuario = jsonDecode(response.body)[1];
+      // ❤❤❤❤❤❤❤❤❤❤❤
+      _nombre = _usuario['userNombre'];
+      _apellido = _usuario['usuarioApellido'];
+      _telefono = _usuario['telefono'];
+      
+      
+
       notifyListeners(); // Notificar cambios
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => Inicio_page()));

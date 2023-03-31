@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/screens/carrito.dart';
+
 
 void main() => runApp(botondescripcion());
 
@@ -35,7 +37,10 @@ class botondescripcion extends StatelessWidget {
               ),
             ),
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                 Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => carrito()));
+              },
               icon: Icon(CupertinoIcons.cart,
               color: Color.fromARGB(255, 0, 0, 0),
               ),

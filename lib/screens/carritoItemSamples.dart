@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/provider_carrito.dart';
 
 void main() => runApp(carritoItemSamples());
 //inicio
@@ -8,7 +11,14 @@ class carritoItemSamples extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Column(
+    final carritoInfo = Provider.of<CarritoProvider>(context);
+   
+   if(carritoInfo.carrito.isEmpty){
+    return Center(
+    child: Text('Sin datos'),
+  );
+   }else{
+     return Column(
       children: [
         for (int i = 1; i < 4; i++)
           Container(
@@ -125,5 +135,6 @@ class carritoItemSamples extends StatelessWidget {
           ),
       ],
     );
+   }
   }
 }

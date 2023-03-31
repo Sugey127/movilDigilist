@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
+import 'package:provider/provider.dart';
 import 'Inici.dart';
 import 'carrito.dart';
 import 'catalagodos.dart';
@@ -16,6 +18,7 @@ void main() => runApp(MaterialApp(
 class politicas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final loginInfo = Provider.of<loginProvider>(context);
     return Scaffold(
       drawer: Drawer(
         child: Container(
@@ -23,8 +26,8 @@ class politicas extends StatelessWidget {
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
-                accountName: Text("Andrea_Rodriguez.com"),
-                accountEmail: Text("Andrea@gmail.com"),
+                accountName: Text('${loginInfo.nombre} ${loginInfo.apellido}'),
+                accountEmail: Text(loginInfo.email),
                 currentAccountPicture: CircleAvatar(
                   child: ClipOval(
                     child: Image.network(
@@ -168,7 +171,8 @@ class politicas extends StatelessWidget {
                   ),
                   Text(
                     'Normas a cumplir:\n'
-                    'La aplicación obtiene la información que usted proporciona cuando se descarga y se registra la aplicación. Deberá proporcionar ciertos datos personales, que solo serán utilizados para el propósito que fueron recopilados Cuando se registre con nosotros y utilice la aplicación, por lo general, se proporciona su nombre, dirección de correo electrónico, edad, nombre de usuario, contraseña y otra información de registro.',
+                    'La aplicación obtiene la información que usted proporciona cuando se descarga y se registra la aplicación. Deberá proporcionar ciertos datos personales, que solo serán utilizados para el propósito que fueron recopilados Cuando se registre con nosotros y utilice la aplicación, por lo general, se proporciona su nombre, dirección de correo electrónico,  nombre de usuario, contraseña y otra información de registro en caso de que se necesite.',  
+                    textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 22.0,
                       fontStyle: FontStyle.italic,

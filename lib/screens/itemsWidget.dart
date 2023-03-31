@@ -13,34 +13,34 @@ class itemsWidget extends StatelessWidget {
     final autoparteInfo = Provider.of<AutoparteProvider>(context);
     return Expanded(
       child: GridView.count(
-        childAspectRatio: 0.68,
+        //childAspectRatio: 0.68,
         physics: NeverScrollableScrollPhysics(),
-        crossAxisCount: 2,
+        crossAxisCount: 1,
         shrinkWrap: true,
         children: [
+          //for(int i=0; i<4; i++)
           ListView.builder(
             itemCount: autoparteInfo.autopartes.length,
             itemBuilder: (BuildContext context, int index) {
+              
               return Container(
-                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                decoration: BoxDecoration(
+                padding: EdgeInsets.only(left: 15, right: 15, top: 9),
+                margin: EdgeInsets.symmetric(vertical: 3, horizontal: 10),                decoration: BoxDecoration(
                   color: Color.fromARGB(255, 213, 209, 209),
-                  borderRadius: BorderRadius.circular(20),
+                 borderRadius: BorderRadius.circular(10),
+                 
                 ),
+                
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
+                    Container(
+                     alignment: Alignment.topCenter,
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 255, 153, 0),
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Text(
-                            "-50%",
+                          child: Text( "Descuento: ",
                             style: TextStyle(
                               fontSize: 14,
                               color: Color.fromARGB(255, 0, 0, 0),
@@ -48,8 +48,8 @@ class itemsWidget extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      
+                  
                     InkWell(
                       onTap: () {
                         Navigator.push(
@@ -57,20 +57,19 @@ class itemsWidget extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => itemPage()));
                       },
-                      child: Container(
-                        margin: EdgeInsets.all(10),
-                        child: Image.asset(
+                      child: Center(
+
+                        child:  Image.asset(
                           "assets/images/1.png",
                           height: 100,
-                          width: 100,
+                          width: 150,
                         ),
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.only(bottom: 8),
-                      alignment: Alignment.centerLeft,
                       child: Text(
-                        "Balatas",
+                        autoparteInfo.autopartes[index]['nombreAutoparte'],
                         style: TextStyle(
                           fontSize: 18,
                           color: Color.fromARGB(255, 0, 0, 0),
@@ -81,8 +80,7 @@ class itemsWidget extends StatelessWidget {
                     Container(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        'Descripcion: ' +
-                            autoparteInfo.autopartes[index]['description'],
+                        'Descripcion: ' ,
                         style: TextStyle(
                           fontSize: 15,
                           color: Color.fromARGB(255, 0, 0, 0),

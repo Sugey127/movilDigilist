@@ -62,7 +62,7 @@ class categoriesWidget extends StatelessWidget {
               ),          
             ),
            
-Container(
+          Container(
               padding: const EdgeInsets.only(
                   top: 4,
                   left: 10,

@@ -12,23 +12,30 @@ class itemsWidgetcatalago extends StatelessWidget {
   Widget build(BuildContext context) {
     final autoparteInfo = Provider.of<AutoparteProvider>(context);
     return Expanded(
+      
       child: GridView.count(
-        childAspectRatio: 0.68,
+        //childAspectRatio: 0.68,
         physics: NeverScrollableScrollPhysics(),
-        crossAxisCount: 2,
+        crossAxisCount: 1,
         shrinkWrap: true,
         children: [
           ListView.builder(
             itemCount: autoparteInfo.autopartes.length,
             itemBuilder: (BuildContext context, int index) {
+              
               return Container(
-                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                
+                padding: EdgeInsets.only(left: 15, right: 15, top: 9),
+                margin: EdgeInsets.symmetric(vertical: 3, horizontal: 10),
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 213, 209, 209),
                   borderRadius: BorderRadius.circular(20),
+                  
                 ),
-                child: Column(
+
+              
+              child: Column(
+                  
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,6 +51,7 @@ class itemsWidgetcatalago extends StatelessWidget {
                                 builder: (context) => itemPage()));
                       },
                       child: Container(
+                        
                         margin: EdgeInsets.all(10),
                         child: Image.asset(
                           "assets/images/2.png",
@@ -54,9 +62,8 @@ class itemsWidgetcatalago extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.only(bottom: 8),
-                      alignment: Alignment.centerLeft,
                       child: Text(
-                        "Balatas",
+                        "Llantas",
                         style: TextStyle(
                           fontSize: 18,
                           color: Color.fromARGB(255, 0, 0, 0),
@@ -75,6 +82,7 @@ class itemsWidgetcatalago extends StatelessWidget {
                         ),
                       ),
                     ),
+                    
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Row(
@@ -94,6 +102,7 @@ class itemsWidgetcatalago extends StatelessWidget {
                         ],
                       ),
                     ),
+                    
                   ],
                 ),
               );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
@@ -18,11 +19,12 @@ class proveedor extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final loginInfo = Provider.of<loginProvider>(context);
     final proveedorInfo = Provider.of<ProveedorProvider>(context);
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.grey,
+          primarySwatch: Colors.orange,
         ),
         home: Scaffold(
           drawer: Drawer(
@@ -31,8 +33,8 @@ class proveedor extends StatelessWidget {
               child: ListView(
                 children: [
                   UserAccountsDrawerHeader(
-                    accountName: Text("Andrea_Rodriguez.com"),
-                    accountEmail: Text("Andrea@gmail.com"),
+                    accountName: Text('${loginInfo.nombre} ${loginInfo.apellido}'),
+                    accountEmail: Text(loginInfo.email),
                     currentAccountPicture: CircleAvatar(
                       child: ClipOval(
                         child: Image.network(
@@ -45,11 +47,6 @@ class proveedor extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: Color.fromARGB(255, 255, 157, 28),
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(
-                            'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg'),
-                      ),
                     ),
                   ),
                   ListTile(
@@ -82,17 +79,6 @@ class proveedor extends StatelessWidget {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.notifications),
-                    title: Text('Notificaciones'),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => notificaciones()));
-                    },
-                  ),
-                  Divider(),
-                  ListTile(
                     leading: Icon(Icons.settings),
                     title: Text('Configuraciones'),
                     onTap: () {
@@ -102,6 +88,7 @@ class proveedor extends StatelessWidget {
                               builder: (context) => configuraciones()));
                     },
                   ),
+                  Divider(),
                   ListTile(
                     leading: Icon(Icons.description),
                     title: Text('Politicas'),
@@ -110,7 +97,6 @@ class proveedor extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => politicas()));
                     },
                   ),
-                  Divider(),
                   ListTile(
                       leading: Icon(Icons.shop),
                       title: Text('Carrito'),
@@ -118,6 +104,7 @@ class proveedor extends StatelessWidget {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => carrito()));
                       }),
+                      Divider(),
                   ListTile(
                       leading: Icon(Icons.exit_to_app),
                       title: Text('Salir'),

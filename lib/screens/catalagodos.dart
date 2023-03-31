@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
-
+import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'Inici.dart';
 import 'carrito.dart';
 import '../utilities/categoriesWidget.dart';
@@ -11,6 +11,7 @@ import 'itemsWidget.dart';
 import 'itemsWidgetcatalago.dart';
 import 'login_screen.dart';
 import 'notificaciones.dart';
+import 'package:provider/provider.dart';
 //inicio
 
 void main() => runApp(catalagodos());
@@ -19,10 +20,12 @@ class catalagodos extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+  final loginInfo = Provider.of<loginProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
         theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.orange,
       ),
         //title: 'material app',
         home: Scaffold(
@@ -32,8 +35,8 @@ class catalagodos extends StatelessWidget {
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
-                accountName: Text("Andrea_Rodriguez.com"),
-                accountEmail: Text("Andrea@gmail.com"),
+                accountName: Text('${loginInfo.nombre} ${loginInfo.apellido}'),
+                accountEmail: Text(loginInfo.email),
                 currentAccountPicture: CircleAvatar(
                   child: ClipOval(
                     child: Image.network(

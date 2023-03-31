@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/providers/provider_autopartes.dart';
 import 'package:flutter_login_ui/providers/provider_buscarYear.dart';
+import 'package:flutter_login_ui/providers/provider_carrito.dart';
 import 'package:flutter_login_ui/providers/provider_marca.dart';
 import 'package:flutter_login_ui/providers/provider_modelos.dart';
 import 'package:flutter_login_ui/providers/provider_proveedor.dart';
@@ -48,6 +49,8 @@ class MyApp extends StatelessWidget {
               create: (context) => RecuperarContraseniaProvider()),
           ChangeNotifierProvider<ProveedorProvider>(
               create: (context) => ProveedorProvider()..fetchProveedores()),
+           ChangeNotifierProvider(
+              create: (context) => CarritoProvider()..fetchCarrito()),
         ],
         child: MaterialApp(
           theme: ThemeData(

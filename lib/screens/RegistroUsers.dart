@@ -22,7 +22,12 @@ class _RegistroUsersState extends State<RegistroUsers> {
   @override
   Widget build(BuildContext context) {
     final registroInfo = Provider.of<registroProvider>(context);
+   
     return Scaffold(
+      appBar: AppBar(
+            title: const Text(''),
+            
+          ),
       body: Form(
 
             child: SingleChildScrollView(
@@ -31,13 +36,13 @@ class _RegistroUsersState extends State<RegistroUsers> {
           children: <Widget>[
 
              SizedBox(
-                height: 50,
+                height: 70,
               ),
 
             Align(
               alignment: Alignment.topCenter,
               child: SizedBox(
-                width: 450,
+                width: 350,
               child:TextFormField(
                 style: TextStyle( height: 2.0, color: Colors.black),
                 controller: _userNombreController,
@@ -64,13 +69,13 @@ class _RegistroUsersState extends State<RegistroUsers> {
             Align(
               alignment: Alignment.topCenter,
               child: SizedBox(
-              width: 450,
+              width: 350,
               child:TextFormField(
               style: TextStyle( height: 2.0, color: Colors.black),
               controller: _usuarioApellidoController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.person_2),
+                prefixIcon: Icon(Icons.person_outlined),
               hintText: 'Ingresa tu apellido',
               ),
               validator: (String? value) {
@@ -91,7 +96,7 @@ class _RegistroUsersState extends State<RegistroUsers> {
           Align(
             alignment: Alignment.topCenter,
             child: SizedBox(
-            width: 450,
+            width: 350,
             child:TextFormField(
               style: TextStyle( height: 2.0, color: Colors.black),
               controller: _telefonoController,
@@ -118,7 +123,7 @@ class _RegistroUsersState extends State<RegistroUsers> {
           Align(
             alignment: Alignment.topCenter,
             child: SizedBox(
-            width: 450,
+            width: 350,
             child: TextFormField(
               style: TextStyle( height: 2.0, color: Colors.black),
               controller: _emailController,
@@ -145,7 +150,7 @@ class _RegistroUsersState extends State<RegistroUsers> {
           Align(
             alignment: Alignment.topCenter,
             child: SizedBox(
-            width: 450,
+            width: 350,
             child: TextFormField(
               style: TextStyle( height: 2.0, color: Colors.black),
               controller: _passController,
@@ -182,6 +187,7 @@ class _RegistroUsersState extends State<RegistroUsers> {
                 ),
                 onPressed: () {
                   print(_userNombreController.text);
+                 
                   registroInfo.fetchRegistro(
                       _userNombreController.text,
                       _usuarioApellidoController.text,

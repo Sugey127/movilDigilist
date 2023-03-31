@@ -21,13 +21,17 @@ class _VerificarCodeState extends State<VerificarCode> {
   Widget build(BuildContext context) {
     final registroInfo = Provider.of<VerificarCodigo>(context);
     return Scaffold(
+      appBar: AppBar(
+            title: const Text(''),
+            
+          ),
       body: Form(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
 
             SizedBox(
-                height: 50,
+                height: 60,
               ),
 
             Center(
@@ -46,7 +50,7 @@ class _VerificarCodeState extends State<VerificarCode> {
           Align(
             alignment: Alignment.topCenter,
         child: SizedBox(
-          width: 450,
+          width: 350,
             child: TextFormField(
               style: TextStyle( height: 2.0, color: Colors.black),
               controller: _codeController,

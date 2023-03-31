@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/screens/MyStatefulWidget.dart';
 import 'package:flutter_login_ui/screens/perfil.dart';
 import 'package:flutter_login_ui/screens/politicas.dart';
+import 'package:provider/provider.dart';
 
 import 'Inici.dart';
 import 'carrito.dart';
@@ -18,6 +20,8 @@ class catalago extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final loginInfo = Provider.of<loginProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
         //title: 'material app',
@@ -28,8 +32,8 @@ class catalago extends StatelessWidget {
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
-                accountName: Text("Andrea_Rodriguez.com"),
-                accountEmail: Text("Andrea@gmail.com"),
+                accountName: Text('${loginInfo.nombre} ${loginInfo.apellido}'),
+                accountEmail: Text(loginInfo.email),
                 currentAccountPicture: CircleAvatar(
                   child: ClipOval(
                     child: Image.network(

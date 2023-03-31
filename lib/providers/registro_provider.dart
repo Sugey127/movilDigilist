@@ -5,7 +5,6 @@ import 'package:flutter_login_ui/providers/provider_verificarCode.dart';
 import 'package:flutter_login_ui/screens/verificarCode.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../screens/Inici.dart';
 
 
@@ -45,7 +44,7 @@ class registroProvider extends ChangeNotifier {
         body:
             jsonEncode(<String, String>{"userNombre":userNombre,"usuarioApellido":usuarioApellido, "telefono":telefono,"email": email, "password": password}));
     print(response.body);
-    print('sugey controladora ${response.statusCode}');
+    print('  ${response.statusCode}');
    
     if (response.statusCode == 200) {
       Navigator.of(context).pushReplacement(

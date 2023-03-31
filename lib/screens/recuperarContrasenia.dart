@@ -21,7 +21,10 @@ class _RecuperarContraseniaState extends State<RecuperarContrasenia> {
   Widget build(BuildContext context) {
     final registroInfo = Provider.of<RecuperarContraseniaProvider>(context);
     return Scaffold(
-      
+      appBar: AppBar(
+            title: const Text(''),
+            
+          ),
       body: Form(
             child: SingleChildScrollView(
         child: Column(
@@ -50,7 +53,7 @@ class _RecuperarContraseniaState extends State<RecuperarContrasenia> {
           Align(
             alignment: Alignment.topCenter,
         child: SizedBox(
-          width: 450,
+          width: 350,
             child: TextFormField(
               style: TextStyle( height: 2.0, color: Colors.black),     
               controller: _emailController,
@@ -77,7 +80,7 @@ class _RecuperarContraseniaState extends State<RecuperarContrasenia> {
         Align(
           alignment: Alignment.topCenter,
         child: SizedBox(
-          width: 450,
+          width: 350,
             child: TextFormField(
               style: TextStyle( height: 2.0, color: Colors.black),
               controller: _contraseniaController,
