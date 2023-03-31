@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/login_provider.dart';
 import 'package:flutter_login_ui/screens/recuperarContrasenia.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_login_ui/screens/verificarCode.dart';
+
 
 import 'RegistroUsers.dart';
 //import 'package:iniciodesesion/pages/RegistroUsers.dart';
@@ -24,7 +26,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     final loginInfo = Provider.of<loginProvider>(context);
-    return Form(
+    return Scaffold(
+
+     
+      body: Form(
       
     key: _formKey,
 
@@ -45,7 +50,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             
             width: 150,
             height: 150,
-            color: Color.fromARGB(255, 233, 232, 232),
+            color: Color.fromARGB(255, 238, 238, 238),
             child: Image.asset('assets/logos/logo_proyecto.png'),
             ),
           ),
@@ -57,7 +62,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       Align(
         alignment: Alignment.topCenter,
         child: SizedBox(
-          width: 450,
+          width: 350,
           child: TextFormField(
             style: TextStyle( height: 2.0, color: Colors.black),
             controller: _correoController,
@@ -84,7 +89,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
    Align(
       alignment: Alignment.topCenter,
       child: SizedBox(
-        width: 450,
+        width: 350,
           child: TextFormField(
               style: TextStyle( height: 2.0, color: Colors.black),
               obscureText: true,
@@ -131,7 +136,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 }
               },
               
-              child: const Text('          Iniciar          '),
+              child: const Text('         Iniciar         '),
               
             ),
           ),
@@ -182,9 +187,34 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: const Text('   Recuperar contraseña   '),
               ),
             ),
+
+            SizedBox(
+              height: 10,
+            ),
+
+           Align(
+            alignment: Alignment.topCenter,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.orange,
+            // side: BorderSide(color: Colors.yellow, width: 5),
+            textStyle: const TextStyle(
+                color: Colors.white, fontSize: 15, fontStyle: FontStyle.normal),
+            shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+          ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => VerificarCode ()));
+    
+                },
+                child: const Text('    Codigo de Verificacion    '),
+              ),
+            ),
           
         ],
       ),  
+      ),
       ),
     );
   }
