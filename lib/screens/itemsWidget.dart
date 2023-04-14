@@ -68,7 +68,7 @@ class itemsWidget extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.only(bottom: 8),
-                      child: Text(
+                      child: Text('Nombre: ' +
                         autoparteInfo.autopartes[index]['nombreAutoparte'],
                         style: TextStyle(
                           fontSize: 18,

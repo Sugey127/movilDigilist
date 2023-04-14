@@ -49,7 +49,7 @@ class carritoItemSamples extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Product Title",
+                        "Nombre: ",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

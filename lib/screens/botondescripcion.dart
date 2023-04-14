@@ -8,10 +8,12 @@ import 'package:provider/provider.dart';
 void main() => runApp(botondescripcion());
 
 class botondescripcion extends StatelessWidget {
+  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-        final carritoinfo = Provider.of<CarritoProvider>(context);
+    
+       // final carritoinfo = Provider.of<CarritoProvider>(context);
     return BottomAppBar(
       child: Container(
         height: 70,
@@ -41,8 +43,7 @@ class botondescripcion extends StatelessWidget {
             ),
             ElevatedButton.icon(
               onPressed: () {
-                 Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => carrito()));
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => carrito()));
               },
               icon: Icon(CupertinoIcons.cart,
               color: Color.fromARGB(255, 0, 0, 0),
