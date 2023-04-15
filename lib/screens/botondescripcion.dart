@@ -41,33 +41,6 @@ class botondescripcion extends StatelessWidget {
                 color: Color.fromARGB(255, 0, 0, 0),
               ),
             ),
-            ElevatedButton.icon(
-              onPressed: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context) => carrito()));
-              },
-              icon: Icon(CupertinoIcons.cart,
-              color: Color.fromARGB(255, 0, 0, 0),
-              ),
-              label: Text(
-                "Add To Cart",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                ),
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 153, 0),),
-                padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(vertical: 13, horizontal: 15),
-                ),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_ui/providers/provider_autopartes.dart';
+import 'package:flutter_login_ui/screens/carrito.dart';
 import 'package:flutter_login_ui/screens/itemPage.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 void main() => runApp(itemsWidget());
 //inicio
@@ -102,10 +105,11 @@ class itemsWidget extends StatelessWidget {
                               color: Color.fromARGB(255, 0, 0, 0),
                             ),
                           ),
-                          Icon(
-                            Icons.shopping_cart_checkout,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                          ),
+                          //Aqui es donde se supone que se almacena el icono
+                          IconButton(
+                              icon: Icon(Icons.shopping_cart_checkout),
+                              color: Colors.white, onPressed: () { },
+                            ),
                         ],
                       ),
                     ),

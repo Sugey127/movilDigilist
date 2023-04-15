@@ -16,7 +16,7 @@ import '../utilities/categoriesWidget.dart';
 import 'configuraciones.dart';
 
 import 'itemsWidget.dart';
-
+//itemsWidget es donde se encuentra el icono al final, donde se debe de almacenar los datos de agregar a carrito
 //inicio
 void main() => runApp(Inicio_page());
 

@@ -182,24 +182,11 @@ class itemPage extends StatelessWidget {
                                             offset: Offset(0, 3),
                                           ),
                                         ]),
-                                    child: Icon(
-                                      CupertinoIcons.minus_circle,
-                                      size: 18,
-                                    ),
+                                   
                                   ),
                                 ],
                               ),
-                              Container(
-                                margin: EdgeInsets.symmetric(horizontal: 10),
-                                child: Text(
-                                  "01",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 0, 0, 0),
-                                  ),
-                                ),
-                              ),
+                              
                               Row(
                                 children: [
                                   Container(
@@ -215,10 +202,7 @@ class itemPage extends StatelessWidget {
                                             offset: Offset(0, 3),
                                           ),
                                         ]),
-                                    child: Icon(
-                                      CupertinoIcons.plus_circle,
-                                      size: 18,
-                                    ),
+                                   
                                   ),
                                 ],
                               ),
